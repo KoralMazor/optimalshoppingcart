@@ -1,0 +1,8 @@
+# Default ignored files
+/shelf/
+/.idea/workspace.xml
+# IntelliJ
+out/
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
