@@ -3,8 +3,6 @@ package main.java.com.hit;
 import java.util.ArrayList;
 
 public class OneOrZeroKnapsackAlgoImpl implements IAlgoKnapsack {
-
-
         // the items which are put
         // in a knapsack of capacity W
         @Override
