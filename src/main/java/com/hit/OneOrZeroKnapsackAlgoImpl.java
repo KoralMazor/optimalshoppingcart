@@ -1,44 +1,55 @@
 package main.java.com.hit;
 
-public class OneOrZeroKnapsackAlgoImpl {
-    // A Dynamic Programming based solution for 0-1 Knapsack problem
+import java.util.ArrayList;
 
-        // Returns the maximum value that can be put in a knapsack
-        // of capacity W
-        static int knapSack(int W, int wt[], int val[], int n)
+public class OneOrZeroKnapsackAlgoImpl implements IAlgoKnapsack {
+
+
+        // the items which are put
+        // in a knapsack of capacity W
+        @Override
+        public ArrayList<Integer> createShoppingCart(int[] v, int[] w, int totalWeight , int n)
         {
-            int i, w;
-            int K[][] = new int[n + 1][W + 1];
+            int i, wi;
+            int K[][] = new int[n + 1][totalWeight + 1];
+            ArrayList<Integer> collectedObjects = new ArrayList<Integer>();
 
             // Build table K[][] in bottom up manner
-            for (i = 0; i<= n; i++) {
-                for (w = 0; w<= W; w++) {
-                    if (i == 0 || w == 0)
-                        K[i][w] = 0;
-                    else if (wt[i - 1]<= w) {
-                        if(val[i - 1] + K[i - 1][w - wt[i - 1]]>K[i - 1][w])
-                        {
-                            K[i][w] = val[i - 1] + K[i - 1][w - wt[i - 1]];
-                            System.out.println(wt[i - 1] + " " + val[i - 1]);
-                        }
-                        else
-                            K[i][w] = K[i - 1][w];
-                    }
+            for (i = 0; i <= n; i++) {
+                for (wi = 0; wi <= totalWeight; wi++) {
+                    if (i == 0 || wi == 0)
+                        K[i][wi] = 0;
+                    else if (w[i - 1] <= wi)
+                        K[i][wi] = Math.max(v[i - 1] +
+                                K[i - 1][wi - w[i - 1]], K[i - 1][wi]);
                     else
-                        K[i][w] = K[i - 1][w];
+                        K[i][wi] = K[i - 1][wi];
                 }
             }
+            // stores the result of Knapsack
+            int res = K[n][totalWeight];
+            wi = totalWeight;
+            for (i = n; i > 0 && res > 0; i--) {
 
-            return K[n][W];
+                // either the result comes from the top
+                // (K[i-1][w]) or from (val[i-1] + K[i-1]
+                // [w-wt[i-1]]) as in Knapsack table. If
+                // it comes from the latter one/ it means
+                // the item is included.
+                if (res == K[i - 1][wi])
+                    continue;
+                else {
+
+                    // This item is included.
+                    collectedObjects.add(i - 1);
+                    // Since this weight is included its
+                    // value is deducted
+                    res = res - v[i - 1];
+                    wi = wi - w[i - 1];
+                }
+            }
+            return collectedObjects;
         }
-
-    public static void main(String args[])
-    {
-        int val[] = new int[] { 60, 100, 120 };
-        int wt[] = new int[] { 10, 20, 30 };
-        int W = 50;
-        int n = val.length;
-        System.out.println(knapSack(W, wt, val, n));
     }
 
-    }
+

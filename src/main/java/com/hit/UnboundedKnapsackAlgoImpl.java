@@ -1,56 +1,62 @@
 package main.java.com.hit;
+import java.util.ArrayList;
+
+//This is an implementation of the Unbounded knapsack problem
+//Runtime is O(KC) where K is the number of items and C the maximum weight of the bag
+// This is an implementation of the unbounded knapsack problem (every item can be selected an infinite number of times)
+// @param v an array of size k representing the values of the different items
+// * @param w an array of size k representing the weights of the different items
+// * @param c the maximum weight allowed
+// * @return a list of ids representing the items selected such that they maximize the value and do not exceed total weight C
 
 
-// Java program to find maximum achievable
-// value with a knapsack of weight W and
-// multiple instances allowed.
 
-public class UnboundedKnapsackAlgoImpl
-    {
+public class UnboundedKnapsackAlgoImpl implements IAlgoKnapsack {
 
-        // Returns the maximum value with knapsack
-        // of W capacity
-        private static int unboundedKnapsack(int W, int n, int[] val, int[] wt)
-        {
-             int w;
-            // dp[i] is going to store maximum value
-            // with knapsack capacity i.
-            int dp[] = new int[W + 1];
-
-            // Fill dp[] using above recursive formula
-            for(int i = 0; i <= W; i++){
-                for(int j = 0; j < n; j++){
-                    if(wt[j] <= i){
-                        dp[i] = Math.max(dp[i], dp[i - wt[j]] +
-                                val[j]);
+        @Override
+        public ArrayList<Integer> createShoppingCart(int[] v, int[] w,
+                                                            int totalWeight, int n) {
+            int[] maxValues = new int[totalWeight + 1]; //stores the optimal values for the weights 0,..,c
+            int[] lastSelected = new int[totalWeight + 1];
+            lastSelected[0] = -1; //stores the index of the last collected item in the optimal soltuion of weights 0,...,c
+            for (int i = 1; i <= totalWeight; i++) {
+                //compute the optimal solution for the weight i. For every iteration (new incrementation of weight), we can add any of the items
+                int index = lastSelected[i - 1];
+                int maxValue = maxValues[i - 1];
+                for (int j = 0; j < w.length; j++) { //the optimal solution for the weight i is the maximum between not selecting any item and the item that maximizes the value achieved without exceeding the allowed weight C
+                    if (w[j] <= i && v[j] + maxValues[i - w[j]] > maxValue) {
+                        index = j;
+                        maxValue = v[j] + maxValues[i - w[j]];
                     }
                 }
+                maxValues[i] = maxValue;
+                lastSelected[i] = index;
             }
-//            // dp[val.length+1][sackWeight+1] is the matrix for caching.
-//            // val[] is the array that stores the values of the objects
-//            // and wt[] is the array that stores the weight of the corresponding objects.
-//            int x = val.length, y = W;
-//            while (x > 0 && y > 0) {
-//                if (dp[x][y] == dp[x - 1][y])
-//                    x--;
-//                else if (dp[x - 1][y] >= dp[x][y - wt[x - 1]] + val[x - 1])
-//                    x--;
-//                else {
-//                    System.out.println("including wt " + wt[x - 1] + " with value " + val[x - 1]);
-//                    y -= wt[x - 1];
-//                }
-//            }
-            return dp[W];
+            return collectObjects(w, lastSelected);
         }
 
-        // Driver program
-        public static void main(String[] args)
-        {
-            int W = 100;
-            int val[] = {10, 30, 20};
-            int wt[] = {5, 10, 15};
-            int n = val.length;
-            System.out.println(unboundedKnapsack(W, n, val, wt));
+        private static ArrayList<Integer> collectObjects(int[] w,
+                                                         int[] selectedObjects) {
+            ArrayList<Integer> collectedObjects = new ArrayList<>();
+            int index = selectedObjects.length - 1;
+            while (selectedObjects[index] != -1) {
+                collectedObjects.add(selectedObjects[index]);
+                index = index - w[selectedObjects[index]];
+            }
+            return collectedObjects;
         }
-    }
+
+        public  void main(String[] args) {
+            int[] v = new int[] { 30, 14, 16, 9 };
+            int[] w = new int[] { 6, 3, 4, 2 };
+            int c = 10;
+            int n = 0;
+            ArrayList<Integer> res = new ArrayList<>();
+            res = createShoppingCart(v, w, c, n);
+            System.out.println("the ids of the selected objects are :"
+                    + res);
+        }
+
+
+}
 
