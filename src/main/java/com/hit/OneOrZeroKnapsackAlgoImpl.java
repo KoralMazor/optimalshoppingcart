@@ -1,16 +1,17 @@
 package main.java.com.hit;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class OneOrZeroKnapsackAlgoImpl implements IAlgoKnapsack {
         // the items which are put
         // in a knapsack of capacity W
         @Override
-        public ArrayList<Integer> createShoppingCart(int[] v, int[] w, int totalWeight , int n)
+        public Collection<Integer> createShoppingCart(int[] v, int[] w, int totalWeight , int n)
         {
             int i, wi;
             int K[][] = new int[n + 1][totalWeight + 1];
-            ArrayList<Integer> collectedObjects = new ArrayList<Integer>();
+            ArrayList<Integer> collectedObjects = new ArrayList<>();
 
             // Build table K[][] in bottom up manner
             for (i = 0; i <= n; i++) {

@@ -1,5 +1,7 @@
 package main.java.com.hit;
+
 import java.util.ArrayList;
+import java.util.Collection;
 
 //This is an implementation of the Unbounded knapsack problem
 //Runtime is O(KC) where K is the number of items and C the maximum weight of the bag
@@ -10,12 +12,11 @@ import java.util.ArrayList;
 // * @return a list of ids representing the items selected such that they maximize the value and do not exceed total weight C
 
 
-
 public class UnboundedKnapsackAlgoImpl implements IAlgoKnapsack {
 
         @Override
-        public ArrayList<Integer> createShoppingCart(int[] v, int[] w,
-                                                            int totalWeight, int n) {
+        public Collection<Integer> createShoppingCart(int[] v, int[] w,
+                                                      int totalWeight, int n) {
             int[] maxValues = new int[totalWeight + 1]; //stores the optimal values for the weights 0,..,c
             int[] lastSelected = new int[totalWeight + 1];
             lastSelected[0] = -1; //stores the index of the last collected item in the optimal soltuion of weights 0,...,c
@@ -35,7 +36,7 @@ public class UnboundedKnapsackAlgoImpl implements IAlgoKnapsack {
             return collectObjects(w, lastSelected);
         }
 
-        private static ArrayList<Integer> collectObjects(int[] w,
+        private static Collection<Integer> collectObjects(int[] w,
                                                          int[] selectedObjects) {
             ArrayList<Integer> collectedObjects = new ArrayList<>();
             int index = selectedObjects.length - 1;
@@ -45,18 +46,6 @@ public class UnboundedKnapsackAlgoImpl implements IAlgoKnapsack {
             }
             return collectedObjects;
         }
-
-        public  void main(String[] args) {
-            int[] v = new int[] { 30, 14, 16, 9 };
-            int[] w = new int[] { 6, 3, 4, 2 };
-            int c = 10;
-            int n = 0;
-            ArrayList<Integer> res = new ArrayList<>();
-            res = createShoppingCart(v, w, c, n);
-            System.out.println("the ids of the selected objects are :"
-                    + res);
-        }
-
 
 }
 

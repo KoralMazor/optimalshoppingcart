@@ -6,3 +6,4 @@ out/
 
 # mpeltonen/sbt-idea plugin
 .idea/
+.idea/vcs.xml
