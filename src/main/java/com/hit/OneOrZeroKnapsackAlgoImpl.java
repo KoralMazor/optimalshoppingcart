@@ -1,9 +1,9 @@
-package main.java.com.hit;
+package com.hit;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class OneOrZeroKnapsackAlgoImpl implements IAlgoKnapsack {
+public class OneOrZeroKnapsackAlgoImpl implements main.java.com.hit.IAlgoKnapsack {
         // the items which are put
         // in a knapsack of capacity W
         @Override
@@ -11,7 +11,7 @@ public class OneOrZeroKnapsackAlgoImpl implements IAlgoKnapsack {
         {
             int i, wi;
             int K[][] = new int[n + 1][totalWeight + 1];
-            ArrayList<Integer> collectedObjects = new ArrayList<>();
+            ArrayList<Integer> collectedObjects = new ArrayList<Integer>();
 
             // Build table K[][] in bottom up manner
             for (i = 0; i <= n; i++) {

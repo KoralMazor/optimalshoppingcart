@@ -1,4 +1,4 @@
-package main.java.com.hit;
+package com.hit;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -12,7 +12,7 @@ import java.util.Collection;
 // * @return a list of ids representing the items selected such that they maximize the value and do not exceed total weight C
 
 
-public class UnboundedKnapsackAlgoImpl implements IAlgoKnapsack {
+public class UnboundedKnapsackAlgoImpl implements main.java.com.hit.IAlgoKnapsack {
 
         @Override
         public Collection<Integer> createShoppingCart(int[] v, int[] w,
@@ -38,7 +38,7 @@ public class UnboundedKnapsackAlgoImpl implements IAlgoKnapsack {
 
         private static Collection<Integer> collectObjects(int[] w,
                                                          int[] selectedObjects) {
-            ArrayList<Integer> collectedObjects = new ArrayList<>();
+            ArrayList<Integer> collectedObjects = new ArrayList<Integer>();
             int index = selectedObjects.length - 1;
             while (selectedObjects[index] != -1) {
                 collectedObjects.add(selectedObjects[index]);

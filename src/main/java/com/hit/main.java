@@ -1,4 +1,7 @@
-package main.java.com.hit;
+package com.hit;
+
+import com.hit.OneOrZeroKnapsackAlgoImpl;
+import com.hit.UnboundedKnapsackAlgoImpl;
 
 public class main {
 
