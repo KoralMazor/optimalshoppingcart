@@ -1,4 +1,4 @@
-package main.java.com.hit;
+package main.java;
 
 public class main {
 

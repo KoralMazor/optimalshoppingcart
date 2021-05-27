@@ -1,4 +1,4 @@
-package main.java.com.hit;
+package main.java;
 
 import java.util.ArrayList;
 import java.util.Collection;
