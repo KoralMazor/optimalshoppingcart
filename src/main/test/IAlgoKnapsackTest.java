@@ -1,7 +1,8 @@
 package main.test;
 
-import main.java.com.hit.OneOrZeroKnapsackAlgoImpl;
-import main.java.com.hit.UnboundedKnapsackAlgoImpl;
+import main.java.IAlgoKnapsack;
+import main.java.OneOrZeroKnapsackAlgoImpl;
+import main.java.UnboundedKnapsackAlgoImpl;
 import org.junit.jupiter.api.*;
 
 public class IAlgoKnapsackTest {
@@ -35,19 +36,19 @@ public class IAlgoKnapsackTest {
     public void mfuTest() {
 
         //7 0 1 0 8 8 9 1 1 3
-        Assert.assertEquals(null, getOrPut(mfu, 7));
-        Assert.assertEquals(null, getOrPut(mfu, 0));
-        Assert.assertEquals(null, getOrPut(mfu, 1));
-        Assert.assertEquals(new Integer(0), getOrPut(mfu, 0));
-        Assert.assertEquals(new Integer(0), getOrPut(mfu, 8));
-        Assert.assertEquals(new Integer(8), getOrPut(mfu, 8));
-        Assert.assertEquals(new Integer(8), getOrPut(mfu, 9));
-        Assert.assertEquals(new Integer(1), getOrPut(mfu, 1));
-        Assert.assertEquals(new Integer(1), getOrPut(mfu, 1));
-        Assert.assertEquals(new Integer(1), getOrPut(mfu, 3));
+        Assertions.assertEquals(null, createShoppingCart(, 7));
+        Assertions.assertEquals(null, createShoppingCart(mfu, 0));
+        Assertions.assertEquals(null, createShoppingCart(mfu, 1));
+        Assertions.assertEquals(new Integer(0), createShoppingCart(mfu, 0));
+        Assertions.assertEquals(new Integer(0), createShoppingCart(mfu, 8));
+        Assertions.assertEquals(new Integer(8), createShoppingCart(mfu, 8));
+        Assertions.assertEquals(new Integer(8), createShoppingCart(mfu, 9));
+        Assertions.assertEquals(new Integer(1), createShoppingCart(mfu, 1));
+        Assertions.assertEquals(new Integer(1), createShoppingCart(mfu, 1));
+        Assertions.assertEquals(new Integer(1), createShoppingCart(mfu, 3));
     }
 
-    private Integer getOrPut(MFUAlgoImpl<Integer, Integer> mfu, Integer key) {
+    private Integer createShoppingCart(IAlgoKnapsack<Integer, Integer> mfu, Integer key) {
         Integer element = mfu.getElement(key);
         if(element != null)
             return element;
