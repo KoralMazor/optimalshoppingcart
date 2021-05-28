@@ -1,10 +1,10 @@
-package main.java.com.hit;
+package main.java;
 import java.util.Collection;
 
 public interface IAlgoKnapsack {
 
  Collection<Integer> createShoppingCart(int[] v, int[] w,
-                                              int totalWeight, int n);
+                                        int totalWeight, int n);
 }
 
 
