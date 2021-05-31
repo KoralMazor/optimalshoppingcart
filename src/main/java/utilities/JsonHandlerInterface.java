@@ -8,5 +8,8 @@ import java.util.ArrayList;
 
 public interface JsonHandlerInterface {
     ArrayList<CartObject> ReadJSon();
-    void WriteJsonToLocal(ArrayList<CartObject>y, String filename) throws URISyntaxException, IOException;
+    String ReadFromFile();
+    boolean WriteToFile(String input);
+    boolean WriteToFile(ArrayList<CartObject> array);
+    String ObjectToStinrg(ArrayList<CartObject> array);
 }
