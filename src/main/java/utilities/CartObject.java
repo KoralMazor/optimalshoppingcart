@@ -1,6 +1,6 @@
 package utilities;
 
-public class CartObject {
+public class CartObject implements CartObjectInterface{
         String Name;
         String Type;
         double Price;
