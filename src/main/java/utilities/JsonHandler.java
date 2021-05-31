@@ -11,14 +11,14 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class JsonHandler implements JsonHandlerInterface {
-    static String FRUIT = "fruit";
-    static String VEGETABLE = "vegetable";
-    static String NAME = "name";
-    static String PRICE = "price";
-    static String WEIGHT = "weight";
+    final String FRUIT = "fruit";
+    final String VEGETABLE = "vegetable";
+    final String NAME = "name";
+    final String PRICE = "price";
+    final String WEIGHT = "weight";
 
-    static String FileName = "DataSource.txt";
-    static String FilePath = "d:/";
+    final String FileName = "DataSource.txt";
+    final String FilePath = "d:/";
     // Where we stores our parsed json.
     static ArrayList<CartObject> CartArray = new ArrayList<>();
 
@@ -99,6 +99,35 @@ public class JsonHandler implements JsonHandlerInterface {
         String s = ObjectToStinrg(array);
         try (FileOutputStream fos = new FileOutputStream(FilePath + FileName)) {
             byte[] mybytes = s.getBytes();
+            fos.write(mybytes);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            return false;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+    @Override
+    public boolean WriteToFile(String path , String filename , ArrayList<CartObject> array) {
+        String s = ObjectToStinrg(array);
+        try (FileOutputStream fos = new FileOutputStream(FilePath + FileName)) {
+            byte[] mybytes = s.getBytes();
+            fos.write(mybytes);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            return false;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+    @Override
+    public boolean WriteToFile(String path , String filename , String input) {
+        try (FileOutputStream fos = new FileOutputStream(path + filename)) {
+            byte[] mybytes = input.getBytes();
             fos.write(mybytes);
         } catch (FileNotFoundException e) {
             e.printStackTrace();

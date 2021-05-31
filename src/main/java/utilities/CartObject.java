@@ -14,16 +14,23 @@ public class CartObject implements CartObjectInterface{
                this.Price = price;
                this.Weight = weight;
      }
+     @Override
      public void setName(String name){ this.Name = name; }
+     @Override
      public void setType(String type){ this.Type = type; }
+     @Override
      public void setPrice(double price){ this.Price = price; }
+     @Override
      public void setWeight(double weight){ this.Weight = weight; }
-
+     @Override
      public String getName(){ return this.Name; }
+     @Override
      public String getType(){ return this.Type; }
+     @Override
      public double getPrice(){ return this.Price; }
+     @Override
      public double getWeight(){ return this.Weight; }
-
+     @Override
      public String toJsonString(ArrayList<CartObject> array){
         String s = "{";
         s+="  \n" +
