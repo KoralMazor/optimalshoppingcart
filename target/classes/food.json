@@ -1,0 +1,131 @@
+{
+
+  "fruits" : [
+    {
+      "name" : "Apple",
+      "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/265px-Red_Apple.jpg",
+      "weight": 0.3,
+      "price" : 35
+    },
+    {
+      "name" : "Banana",
+      "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Bananas_white_background_DS.jpg/320px-Bananas_white_background_DS.jpg",
+      "weight": 0.21,
+      "price" : 12
+    },
+    {
+      "name" : "Apricots",
+      "image" : "https://halfyourplate-4kgxi1gvwldjzby.stackpathdns.com/wp-content/uploads/2015/01/apricot_small.jpg",
+      "weight": 0.1,
+      "price" : 45
+    },
+    {
+      "name" : "Avocado",
+      "image" : "https://halfyourplate-4kgxi1gvwldjzby.stackpathdns.com/wp-content/uploads/2015/01/avocado_small.jpg",
+      "weight": 0.7,
+      "price" : 200
+    },
+    {
+      "name" : "Pineapple",
+      "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Pineapple_and_cross_section.jpg/286px-Pineapple_and_cross_section.jpg",
+      "weight": 0.122,
+      "price" : 200
+    },
+    {
+      "name" : "Blueberries",
+      "image" : "https://halfyourplate-4kgxi1gvwldjzby.stackpathdns.com/wp-content/uploads/2015/01/blueberries_small.jpg",
+      "weight": 0.31,
+      "price" : 200
+    },
+    {
+      "name" : "Coconut",
+      "image" : "https://halfyourplate-4kgxi1gvwldjzby.stackpathdns.com/wp-content/uploads/2015/01/coconutmeat_small.gif",
+      "weight": 0.2311,
+      "price" : 200
+    },
+    {
+      "name" : "Grapefruit",
+      "image" : "https://halfyourplate-4kgxi1gvwldjzby.stackpathdns.com/wp-content/uploads/2015/01/grapefruit_samll.gif",
+      "weight": 0.5,
+      "price" : 200
+    },
+    {
+      "name" : "Guava",
+      "image" : "https://halfyourplate-4kgxi1gvwldjzby.stackpathdns.com/wp-content/uploads/2015/01/guava_small.jpg",
+      "weight": 0.12,
+      "price" : 200
+    },
+    {
+      "name" : "Mango",
+      "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Pineapple_and_cross_section.jpg/286px-Pineapple_and_cross_section.jpg",
+      "weight": 0.8,
+      "price" : 200
+    }
+  ],
+  "vegetables" : [
+    {
+      "name":"Cabbage",
+      "photo_url":"https://www.freepngimg.com/thumb/categories/2970.png",
+      "weight": 0.12,
+      "price": 30
+    },
+    {
+      "name":"Garlic",
+      "photo_url":"https://www.freepngimg.com/thumb/garlic/2-2-garlic-transparent-thumb.png",
+      "weight": 0.5,
+      "price": 20
+    },
+    {
+      "name":"Tomatoes",
+      "photo_url":"https://www.freepngimg.com/thumb/categories/2985.png",
+      "weight": 0.12,
+      "price": 5
+    },
+    {
+      "name":"Carrots",
+      "photo_url":"https://www.freepngimg.com/thumb/categories/2971.png",
+      "weight": 0.2,
+      "price": 60
+    },
+    {
+      "name":"Onions",
+      "photo_url":"https://www.freepngimg.com/thumb/onion/10-red-onion-png-image-thumb.png",
+      "weight": 0.2,
+      "price": 120
+    },
+    {
+      "name":"Potatoes",
+      "photo_url":"https://www.freepngimg.com/thumb/potato/7-potato-png-images-pictures-download-thumb.png",
+      "weight": 0.3,
+      "price": 80
+    },
+    {
+      "name" : "Artichoke",
+      "image" : "https://halfyourplate-4kgxi1gvwldjzby.stackpathdns.com/wp-content/uploads/2014/12/artichoke_small.gif",
+      "weight": 0.2,
+      "price" : 200
+    },
+    {
+      "name" : "Arugula",
+      "image" : "https://halfyourplate-4kgxi1gvwldjzby.stackpathdns.com/wp-content/uploads/2014/12/arugula_small.gif",
+      "weight": 0.2,
+      "price" : 200
+    },
+    {
+      "name" : "Broccoli",
+      "image" : "https://halfyourplate-4kgxi1gvwldjzby.stackpathdns.com/wp-content/uploads/2014/12/broccoli_small.jpg",
+      "weight": 0.2,
+      "price" : 200
+    },
+    {
+      "name" : "Lettuce,",
+      "image" : "https://halfyourplate-4kgxi1gvwldjzby.stackpathdns.com/wp-content/uploads/2015/01/lettuceiceberg_small.gif",
+      "weight": 0.2,
+      "price" : 200
+    }
+  ]
+}
+
+
+
+
