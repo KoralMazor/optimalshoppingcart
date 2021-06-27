@@ -1,4 +1,4 @@
-package main.java.com.hit;
+package main.java;
 
 public class main {
 
@@ -12,7 +12,7 @@ public class main {
 
         UnboundedKnapsackAlgoImpl unbounded = new UnboundedKnapsackAlgoImpl();
         System.out.println("UnboundedKnapsackAlgoArrayList- the ids of the selected objects are :"
-                + unbounded.createShoppingCart(v, w, c, n));
+                + unbounded.buildShoppingCart(v, w, c, n));
 
         // main for OneOrZeroKnapsackAlgoPrint
         int val[] = { 60, 100, 120 };
@@ -21,7 +21,7 @@ public class main {
          n = val.length;
         OneOrZeroKnapsackAlgoImpl algo =  new OneOrZeroKnapsackAlgoImpl();
         System.out.println("OneOrZeroKnapsackAlgoPrint- the ids of the selected objects are :"
-                + algo.createShoppingCart(val, wt, W, n)  );
+                + algo.buildShoppingCart(val, wt, W, n)  );
         //System.out.print(wt[i - 1] + "," + val[i-1] + " ");
     }
 
