@@ -57,8 +57,7 @@ public class IAlgoKnapsackTest {
 
     @AfterEach
     public void tearDown() {
-//        oneOrZeroKnapsack.clear();
-//        unboundedKnapsack;
+
     }
 
     @Test
