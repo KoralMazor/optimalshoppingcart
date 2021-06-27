@@ -1,4 +1,4 @@
-package main.java;
+package main.java.com.hit;
 
 public class main {
 
@@ -18,7 +18,7 @@ public class main {
         int val[] = { 60, 100, 120 };
         int wt[] = { 10, 20, 30 };
         int W = 50;
-        n = val.length;
+         n = val.length;
         OneOrZeroKnapsackAlgoImpl algo =  new OneOrZeroKnapsackAlgoImpl();
         System.out.println("OneOrZeroKnapsackAlgoPrint- the ids of the selected objects are :"
                 + algo.createShoppingCart(val, wt, W, n)  );
