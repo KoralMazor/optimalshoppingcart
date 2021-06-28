@@ -8,26 +8,28 @@ import org.testng.Assert;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import static org.testng.AssertJUnit.assertNull;
+
 public class IAlgoKnapsackTest {
 
     OneOrZeroKnapsackAlgoImpl oneOrZeroKnapsack = null;
     UnboundedKnapsackAlgoImpl unboundedKnapsack = null;
 
     // setup for oneOrZeroKnapsackTest
-    private static final int[] v = { 60, 100, 120 };
-    private static final int [] W = { 10, 20, 30 };
-    private static final int n = v.length;
-    private static final int totalWeight = 50;
-
     private static ArrayList<Integer> resultArray = new ArrayList<>();
 
+    private static final int[] v = { 60, 100, 120 };
+    private static final int [] w = { 10, 20, 30 };
+    private static final int n = v.length;
+
+
+
      // setup for unboundedKnapsackTest
+     private static ArrayList<Integer> unboundedResultArray = new ArrayList<>();
+
     private static final int[] values = { 30, 14, 16, 9 };
     private static final int [] weights = { 6, 3, 4, 2 };
     private static final int length = 0;
-    private static final int unboundedTotalWeight = 10;
-
-    private static ArrayList<Integer> unboundedResultArray = new ArrayList<>();
 
     @BeforeAll
     public static void beforeAllTest() {
@@ -57,29 +59,34 @@ public class IAlgoKnapsackTest {
 
     @AfterEach
     public void tearDown() {
+        System.out.println("Running: tearDown");
+        oneOrZeroKnapsack = null;
+        unboundedKnapsack = null;
+        assertNull(oneOrZeroKnapsack);
+        assertNull(unboundedKnapsack);
 
     }
 
     @Test
     public void  oneOrZeroKnapsackTest() {
-        Assert.assertEquals(resultArray, oneOrZeroKnapsackBuildShoppingCart(oneOrZeroKnapsack,v, W, totalWeight, n ));
+        Assert.assertEquals(resultArray, oneOrZeroKnapsackBuildShoppingCart(oneOrZeroKnapsack,v, w, 50, n ));
     }
 
     @Test
     public void  invalidTotalWeightOneOrZeroKnapsackTest() {
-        Assert.assertEquals(new ArrayList<>(), oneOrZeroKnapsackBuildShoppingCart(oneOrZeroKnapsack, new int[]{60, 100, 120},new int[]{10, 20, 30 },-1,n));
-        Assert.assertEquals(new ArrayList<>(), oneOrZeroKnapsackBuildShoppingCart(oneOrZeroKnapsack, new int[]{60, 100, 120},new int[]{10, 20, 30 },0,n));
+        Assert.assertEquals(new ArrayList<>(), oneOrZeroKnapsackBuildShoppingCart(oneOrZeroKnapsack, v, w,-1, n));
+        Assert.assertEquals(new ArrayList<>(), oneOrZeroKnapsackBuildShoppingCart(oneOrZeroKnapsack, v , w,0, n));
     }
 
     @Test
     public void unboundedKnapsackTest() {
-        Assert.assertEquals(unboundedResultArray, unboundedKnapsackBuildShoppingCart(unboundedKnapsack,values, weights, unboundedTotalWeight, length ));
+        Assert.assertEquals(unboundedResultArray, unboundedKnapsackBuildShoppingCart(unboundedKnapsack, values, weights, 10, 0 ));
     }
 
     @Test
     public void  invalidTotalWeightUnboundedKnapsackTest() {
-        Assert.assertEquals(new ArrayList<>(), oneOrZeroKnapsackBuildShoppingCart(oneOrZeroKnapsack, new int[]{30, 14, 16, 9 },new int[]{6, 3, 4, 2 },-1,length));
-        Assert.assertEquals(new ArrayList<>(), oneOrZeroKnapsackBuildShoppingCart(oneOrZeroKnapsack, new int[]{30, 14, 16, 9 },new int[]{6, 3, 4, 2  },0,length));
+        Assert.assertEquals(new ArrayList<>(), unboundedKnapsackBuildShoppingCart(unboundedKnapsack, values, weights,-1, length));
+        Assert.assertEquals(new ArrayList<>(), unboundedKnapsackBuildShoppingCart(unboundedKnapsack, values, weights,0, length));
     }
 
 
