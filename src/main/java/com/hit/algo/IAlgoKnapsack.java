@@ -1,4 +1,4 @@
-package main.java;
+package com.hit.algo;
 import java.util.Collection;
 
 public interface IAlgoKnapsack {

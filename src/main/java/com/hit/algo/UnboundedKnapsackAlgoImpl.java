@@ -1,4 +1,4 @@
-package main.java;
+package com.hit.algo;
 
 import java.util.ArrayList;
 import java.util.Collection;

@@ -1,7 +1,5 @@
-package main.test;
+package com.hit.algo;
 
-import main.java.OneOrZeroKnapsackAlgoImpl;
-import main.java.UnboundedKnapsackAlgoImpl;
 import org.junit.jupiter.api.*;
 import org.testng.Assert;
 
@@ -12,8 +10,8 @@ import static org.testng.AssertJUnit.assertNull;
 
 public class IAlgoKnapsackTest {
 
-    OneOrZeroKnapsackAlgoImpl oneOrZeroKnapsack = null;
-    UnboundedKnapsackAlgoImpl unboundedKnapsack = null;
+    com.hit.algo.OneOrZeroKnapsackAlgoImpl oneOrZeroKnapsack = null;
+    com.hit.algo.UnboundedKnapsackAlgoImpl unboundedKnapsack = null;
 
     // setup for oneOrZeroKnapsackTest
     private static ArrayList<Integer> resultArray = new ArrayList<>();
@@ -21,8 +19,6 @@ public class IAlgoKnapsackTest {
     private static final int[] v = { 60, 100, 120 };
     private static final int [] w = { 10, 20, 30 };
     private static final int n = v.length;
-
-
 
      // setup for unboundedKnapsackTest
      private static ArrayList<Integer> unboundedResultArray = new ArrayList<>();
