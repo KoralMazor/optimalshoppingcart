@@ -1,5 +1,7 @@
-package com.hit.algo;
+package com.hit.test;
 
+import com.hit.algo.OneOrZeroKnapsackAlgoImpl;
+import com.hit.algo.UnboundedKnapsackAlgoImpl;
 import org.junit.jupiter.api.*;
 import org.testng.Assert;
 
